@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const variants = [
+const variants: Array<{ label: string; color: string; variant: 'flat' | 'elevated' | 'outlined' | 'text' | 'plain' }> = [
   { label: 'Primary', color: 'primary', variant: 'flat' },
   { label: 'Secondary', color: 'secondary', variant: 'flat' },
   { label: 'Elevated', color: 'primary', variant: 'elevated' },

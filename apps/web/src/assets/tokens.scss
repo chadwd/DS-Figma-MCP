@@ -1,0 +1,211 @@
+// Design System Tokens
+// Aligned with Material Design 3 and Figma Variables
+// Auto-sync these tokens with Figma for design consistency
+
+// Color System
+$colors: (
+  primary: #6200ea,
+  primary-container: #eaddff,
+  secondary: #03dac6,
+  secondary-container: #a2f7e1,
+  tertiary: #018786,
+  tertiary-container: #a4f1f9,
+  error: #b3261e,
+  error-container: #f9dedc,
+  background: #fffbfe,
+  surface: #fffbfe,
+  surface-variant: #e7e0ec,
+  outline: #79747e,
+  outline-variant: #cac4d0,
+)
+
+// Semantic Colors
+$semantic-colors: (
+  success: #4caf50,
+  warning: #ff9800,
+  info: #2196f3,
+  neutral: #9e9e9e,
+)
+
+// Typography Scale (Material Design 3)
+$typography: (
+  display-large: (
+    size: 57px,
+    line-height: 64px,
+    letter-spacing: -0.25px,
+    weight: 400,
+  ),
+  display-medium: (
+    size: 45px,
+    line-height: 52px,
+    letter-spacing: 0px,
+    weight: 400,
+  ),
+  display-small: (
+    size: 36px,
+    line-height: 44px,
+    letter-spacing: 0px,
+    weight: 400,
+  ),
+  headline-large: (
+    size: 32px,
+    line-height: 40px,
+    letter-spacing: 0px,
+    weight: 400,
+  ),
+  headline-medium: (
+    size: 28px,
+    line-height: 36px,
+    letter-spacing: 0px,
+    weight: 400,
+  ),
+  headline-small: (
+    size: 24px,
+    line-height: 32px,
+    letter-spacing: 0px,
+    weight: 400,
+  ),
+  title-large: (
+    size: 22px,
+    line-height: 28px,
+    letter-spacing: 0px,
+    weight: 500,
+  ),
+  title-medium: (
+    size: 16px,
+    line-height: 24px,
+    letter-spacing: 0.15px,
+    weight: 500,
+  ),
+  title-small: (
+    size: 14px,
+    line-height: 20px,
+    letter-spacing: 0.1px,
+    weight: 500,
+  ),
+  body-large: (
+    size: 16px,
+    line-height: 24px,
+    letter-spacing: 0.5px,
+    weight: 400,
+  ),
+  body-medium: (
+    size: 14px,
+    line-height: 20px,
+    letter-spacing: 0.25px,
+    weight: 400,
+  ),
+  body-small: (
+    size: 12px,
+    line-height: 16px,
+    letter-spacing: 0.4px,
+    weight: 400,
+  ),
+  label-large: (
+    size: 14px,
+    line-height: 20px,
+    letter-spacing: 0.1px,
+    weight: 500,
+  ),
+  label-medium: (
+    size: 12px,
+    line-height: 16px,
+    letter-spacing: 0.5px,
+    weight: 500,
+  ),
+  label-small: (
+    size: 11px,
+    line-height: 16px,
+    letter-spacing: 0.5px,
+    weight: 500,
+  ),
+)
+
+// Spacing Scale
+$spacing: (
+  0: 0px,
+  1: 4px,
+  2: 8px,
+  3: 12px,
+  4: 16px,
+  5: 20px,
+  6: 24px,
+  7: 28px,
+  8: 32px,
+  9: 36px,
+  10: 40px,
+  12: 48px,
+  14: 56px,
+  16: 64px,
+)
+
+// Border Radius
+$border-radius: (
+  none: 0px,
+  xs: 4px,
+  sm: 8px,
+  md: 12px,
+  lg: 16px,
+  xl: 20px,
+  full: 9999px,
+)
+
+// Shadows (Material Design 3)
+$shadows: (
+  elevation-0: none,
+  elevation-1: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24),
+  elevation-2: 0px 3px 6px rgba(0, 0, 0, 0.15), 0px 2px 4px rgba(0, 0, 0, 0.12),
+  elevation-3: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 3px 6px rgba(0, 0, 0, 0.12),
+  elevation-4: 0px 15px 30px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.12),
+  elevation-5: 0px 20px 40px rgba(0, 0, 0, 0.2), 0px 8px 16px rgba(0, 0, 0, 0.12),
+)
+
+// Animation/Transition
+$transitions: (
+  fast: 150ms cubic-bezier(0.4, 0, 0.2, 1),
+  standard: 300ms cubic-bezier(0.4, 0, 0.2, 1),
+  decelerate: 400ms cubic-bezier(0, 0, 0.2, 1),
+  accelerate: 150ms cubic-bezier(0.4, 0, 1, 1),
+)
+
+// Export all tokens as CSS variables
+:root {
+  // Colors
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+
+  @each $name, $value in $semantic-colors {
+    --color-#{$name}: #{$value};
+  }
+
+  // Spacing
+  @each $size, $value in $spacing {
+    --spacing-#{$size}: #{$value};
+  }
+
+  // Border Radius
+  @each $name, $value in $border-radius {
+    --radius-#{$name}: #{$value};
+  }
+
+  // Typography - only export key metrics for sizes
+  @each $scale, $values in $typography {
+    $size: map-get($values, 'size');
+    $line-height: map-get($values, 'line-height');
+    $weight: map-get($values, 'weight');
+    --type-#{$scale}-size: #{$size};
+    --type-#{$scale}-height: #{$line-height};
+    --type-#{$scale}-weight: #{$weight};
+  }
+
+  // Shadows
+  @each $name, $value in $shadows {
+    --shadow-#{$name}: #{$value};
+  }
+
+  // Transitions
+  @each $name, $value in $transitions {
+    --transition-#{$name}: #{$value};
+  }
+}

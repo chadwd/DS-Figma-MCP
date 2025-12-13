@@ -1,0 +1,23 @@
+{
+  "codeConnect": {
+    "componentDir": "./src/components",
+    "figmaUrl": "https://www.figma.com/design/YOUR_FILE_ID/DS-Figma",
+    "useDevServer": true,
+    "devServerPort": 5173,
+    "credentials": {
+      "personalAccessToken": "${FIGMA_TOKEN}"
+    }
+  },
+  "tokenExport": {
+    "enabled": true,
+    "outputPath": "./public/tokens/tokens.json",
+    "formats": [
+      "tokensStudio",
+      "figmaVariables"
+    ]
+  },
+  "sync": {
+    "autoSync": false,
+    "bidirectional": false
+  }
+}
