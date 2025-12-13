@@ -18,7 +18,7 @@ Perfect for designers, engineers, PMs, and marketing teams to access design syst
 git clone <repo-url>
 cd DS-Figma-MCP
 
-# 2. Navigate to the web app directory
+# 2. Navigate to the web app directory (IMPORTANT!)
 cd apps/web
 
 # 3. Install dependencies
@@ -29,6 +29,8 @@ npm run dev
 ```
 
 Open your browser to **http://localhost:5173** and you should see the design system documentation live!
+
+> **⚠️ Important:** All npm commands must be run from the `apps/web/` directory, not the root.
 
 ## Available Commands
 
